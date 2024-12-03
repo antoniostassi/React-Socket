@@ -4,8 +4,10 @@ import { useEffect, useState } from "react";
 const socket = io.connect("http://localhost:3001");
 
 function App() {
+
     const [message, setMessage] = useState('');
     const [messageReceived, setMessageReceived] = useState('');
+
     const sendMessage = () => {
         socket.emit("send_message",  message);
     };
@@ -29,6 +31,7 @@ function App() {
             {messageReceived}
         </div>
     );
+    
 }
 
 export default App;
